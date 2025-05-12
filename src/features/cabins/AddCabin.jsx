@@ -8,7 +8,11 @@ function AddCabin() {
 
   return (
     <div>
-      <Button onClick={() => setIsOpenModal((show) => !show)}>
+      <Button
+        size="medium"
+        variation="primary"
+        onClick={() => setIsOpenModal((show) => !show)}
+      >
         Add new cabin
       </Button>
       {isOpenModal && (
