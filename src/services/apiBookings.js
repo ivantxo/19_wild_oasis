@@ -17,7 +17,9 @@ export async function getBooking(id) {
 }
 
 export async function getBookings() {
-  const { data, error } = await supabase.from("bookings").select("*");
+  const { data, error } = await supabase
+    .from("bookings")
+    .select("*, cabins(name), guests(id, fullName, email)");
 
   if (error) {
     console.error(error);
