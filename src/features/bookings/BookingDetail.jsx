@@ -52,6 +52,7 @@ function BookingDetail() {
         {status === "unconfirmed" && (
           <Button
             size="medium"
+            variation="primary"
             onClick={() => navigate(`checkin/${bookingId}`)}
           >
             Check in
