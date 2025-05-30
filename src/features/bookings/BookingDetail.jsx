@@ -53,7 +53,7 @@ function BookingDetail() {
           <Button
             size="medium"
             variation="primary"
-            onClick={() => navigate(`checkin/${bookingId}`)}
+            onClick={() => navigate(`/checkin/${bookingId}`)}
           >
             Check in
           </Button>
