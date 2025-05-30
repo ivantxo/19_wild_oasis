@@ -37,7 +37,7 @@ function CheckinBooking() {
   const moveBack = useMoveBack();
   const { checkin, isCheckinIn } = useCheckin();
 
-  if (isPending) return <Spinner />;
+  if (isPending || isPendingSettings) return <Spinner />;
 
   const {
     id: bookingId,
@@ -53,7 +53,19 @@ function CheckinBooking() {
 
   function handleCheckin() {
     if (!confirmPaid) return;
-    checkin(bookingId);
+
+    if (addBreakfast) {
+      checkin({
+        bookingId,
+        breakfast: {
+          hasBreakfast: true,
+          extrasPrice: optionalBreakfastPrice,
+          totalPrice: totalPrice + optionalBreakfastPrice,
+        },
+      });
+    } else {
+      checkin({ bookingId, breakfast: {} });
+    }
   }
 
   return (
