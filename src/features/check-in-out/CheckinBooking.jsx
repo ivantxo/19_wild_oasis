@@ -24,6 +24,7 @@ const Box = styled.div`
 
 function CheckinBooking() {
   const [confirmPaid, setConfirmPaid] = useState(false);
+  const [addBreakfast, setAddBreakfast] = useState(false);
 
   const { booking, isPending } = useBooking();
 
@@ -56,6 +57,19 @@ function CheckinBooking() {
       </Row>
 
       <BookingDataBox booking={booking} />
+
+      <Box>
+        <Checkbox
+          checked={addBreakfast}
+          onChange={() => {
+            setAddBreakfast((add) => !add);
+            setConfirmPaid(false);
+          }}
+          id="breakfast"
+        >
+          Want to add breakfast for X?
+        </Checkbox>
+      </Box>
 
       <Box>
         <Checkbox
