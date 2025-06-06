@@ -84,6 +84,7 @@ function SignupForm() {
           size="medium"
           variation="secondary"
           type="reset"
+          onClick={reset}
         >
           Cancel
         </Button>
